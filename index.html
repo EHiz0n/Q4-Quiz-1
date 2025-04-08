@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	<title>Quiz 1</title>
+</head>
+<body>
+
+	<div class="container">
+
+	<h1>BMI Calculator</h1>
+
+	<img src="https://www.pnbmetlife.com/content/dam/pnb-metlife/images/icons/bmi-calculator/meter.png">
+	
+	<p>Body Mass Index (BMI) is a medical screening tool utilized to measure both weight and height to calculate the amount of body fat you have. It is usually calculated by using kilograms (kg) and divide it by the square height in meters (m2).</p>
+
+	<form>
+		<label>Weight in kilograms</label>
+		<input type="text" class="form-control" name="weight" id="weight">
+
+		<label>Height in meter</label>
+		<input type="text" class="form-control" name="height" id="height">
+	</form>
+
+	<br/>
+
+	<button type="submit" class="btn btn-primary" onClick="calculate()">Calculate BMI</button>
+
+	</div>
+
+	<script>
+	function calculate() {
+			var weight = document.getElementById('weight').value;
+			var height = document.getElementById('height').value;
+			var heightSqr = Math.pow(height,2);
+			var bmiRnd = Math.round(weight / heightSqr);
+			
+	if (bmiRnd < 18.5){
+		window.alert("Your BMI is " + bmiRnd + " You are underweight, you need to eat more");
+	}
+	
+	else if (bmiRnd >= 18.5 && bmiRnd <= 24.9){
+		window.alert("Your BMI is " + bmiRnd + " You are healthy");
+	}
+
+	else if (bmiRnd >= 25 && bmiRnd <= 29.9){
+		window.alert("Your BMI is " + bmiRnd + " You are overweight, you need to eat less");
+	}
+
+	else (bmiRnd >= 30)
+		window.alert("Your BMI is " + bmiRnd + " You are obese, you need to eat a lot less");
+	}
+</script>
+
+</body>
+</html>
